@@ -36,6 +36,8 @@ if (isset($nomePartes[1])) {
 
     <!-- titulo da pagina (aba) -->
     <title>TecnoAr: Consulta de Clientes</title>
+    
+    <link rel="icon" type="image/png" href="../assets/img/icon.png">
 
     <!-- bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
@@ -52,7 +54,7 @@ if (isset($nomePartes[1])) {
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark"> <!-- cores Navbar -->
         <div class="container-fluid">
             <a class="navbar-brand" href="pag_inicio.php">
-                <img src="../assets/img/tec-logo.png" height="40" loading="lazy" style="margin-top: -1px;" /> <!-- logo Prime Solutions -->
+                <img src="../assets/img/tec-logo.png" height="40" loading="lazy" style="margin-top: -1px;" /> <!-- logo TecnoAr -->
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -108,9 +110,9 @@ if (isset($nomePartes[1])) {
         <div class="col-8">
             <!-- caixa de pesquisa -->
             <div class="col-6">
-            <br>
-            <h1>Consultar clientes:</h1>
-            <br>
+                <br>
+                <h1>Consultar clientes:</h1>
+                <br>
                 <div class="caixa-pesquisa">
                     <!-- campo de pesquisa -->
                     <input type="search" class="form-control w-30" placeholder="Digite algum dado utilizado no cadastro para efetuar a busca." id="pesquisa">
@@ -186,15 +188,40 @@ if (isset($nomePartes[1])) {
     function consulta() {
         window.location = 'pag_consu_cliente.php?search=' + search.value;
     }
-
     // função para confirmar a exclusão de um cliente, redirecionando para o script PHP de exclusão
     function confirmarExclusao(id) {
-        // exibe uma janela de confirmação
-        var confirmacao = confirm("Tem certeza que deseja excluir este cliente e todos os dados registrados?");
-        // se confirmado, redireciona para o script de exclusão com o ID como parâmetro
-        if (confirmacao) {
-            window.location.href = '../sql/sql_delete_cliente.php?id=' + id;
-        }
+        // exibe um modal de confirmação
+        var modalConfirmacao = `
+    <div class="modal fade" id="modalConfirmacao" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Confirmar exclusão</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Tem certeza que deseja exluir todos os dados desse cliente ?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-danger" onclick="exluircliente(${id})">Finalizar</button>
+            </div>
+            </div>
+        </div>
+    </div>
+    `;
+
+        // Adiciona o modal à página
+        document.body.insertAdjacentHTML('beforeend', modalConfirmacao);
+
+        // Exibe o modal
+        var modal = new bootstrap.Modal(document.getElementById('modalConfirmacao'));
+        modal.show();
+    }
+
+    function exluircliente(id) {
+        // redireciona para o script de exclusão com o ID como parâmetro
+        window.location.href = '../sql/sql_delete_cliente.php?id=' + id;
     }
 </script>
 

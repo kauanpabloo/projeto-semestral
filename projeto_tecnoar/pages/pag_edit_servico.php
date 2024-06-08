@@ -59,10 +59,12 @@ $data_form = date('d/m/Y', strtotime($dataOs));
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- título da página (aba) -->
-    <title>TecnoAr: Editar Dados do Serviço</title>
+    <title>TecnoAr: Editar Dados da O.S</title>
+
+    <link rel="icon" type="image/png" href="../assets/img/icon.png">
 
     <!-- CSS -->
-    <link rel="stylesheet" type="text/css" href="css/estilo.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/estilo.css">
 
     <!-- bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
@@ -102,6 +104,7 @@ $data_form = date('d/m/Y', strtotime($dataOs));
                 success: function(resp) {
                     // exibe um alerta com a resposta do servidor
                     alert(resp);
+                    window.location.href = "pag_consu_servico.php";
                 }
             });
         }
@@ -117,7 +120,7 @@ $data_form = date('d/m/Y', strtotime($dataOs));
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark"> <!-- cores Navbar -->
         <div class="container-fluid">
             <a class="navbar-brand" href="pag_inicio.php">
-                <img src="../assets/img/tec-logo.png" height="40" loading="lazy" style="margin-top: -1px;" /> <!-- logo Prime Solutions -->
+                <img src="../assets/img/tec-logo.png" height="40" loading="lazy" style="margin-top: -1px;" /> <!-- logo TecnoAr -->
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -198,7 +201,7 @@ $data_form = date('d/m/Y', strtotime($dataOs));
                     <div class="col-md-3">
                         <div class="mb-2">
                             <label class="form-label">Modelo do veiculo:</label> <!-- campo modelo do veiculo -->
-                            <input id="modelo" type="text" maxlength="15" class="form-control" oninput="converterParaMaiusculas(this)" value="<?php echo $modelo ?>" required>
+                            <input id="modelo" type="text" maxlength="40" class="form-control" oninput="converterParaMaiusculas(this)" value="<?php echo $modelo ?>" required>
                         </div>
                     </div>
 
@@ -210,70 +213,70 @@ $data_form = date('d/m/Y', strtotime($dataOs));
                     </div>
                 </div>
 
-            <div class="row">
-                <div class="col-md-2">
-                    <div class="mb-2">
-                        <label for="data" class="form-label">Data:</label> <!-- campo data -->
-                        <input disabled id="data_os" type="text" class="form-control" value="<?php echo $data_form ?>" required>
+                <div class="row">
+                    <div class="col-md-2">
+                        <div class="mb-2">
+                            <label for="data" class="form-label">Data:</label> <!-- campo data -->
+                            <input disabled id="data_os" type="text" class="form-control" value="<?php echo $data_form ?>" required>
+                        </div>
                     </div>
+
+                    <div class="col-md-2">
+                        <div class="mb-2">
+                            <label class="form-label">Valor:</label> <!-- campo valor -->
+                            <input id="valor" type="text" maxlength="15" class="form-control" value="<?php echo $valor ?>" required>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="mb-2">
+                            <label class="form-label">Forma de pagamento:</label>
+                            <select id="forma_pgt" type="text" class="form-select" required>
+                                <option value="" <?php echo $form_pgt == '' ? 'selected' : ''; ?>>Selecione:</option>
+                                <option value="1" <?php echo $form_pgt == '1' ? 'selected' : ''; ?>>Dinheiro</option>
+                                <option value="2" <?php echo $form_pgt == '2' ? 'selected' : ''; ?>>Pix</option>
+                                <option value="3" <?php echo $form_pgt == '3' ? 'selected' : ''; ?>>Cartão - à vista</option>
+                                <option value="4" <?php echo $form_pgt == '4' ? 'selected' : ''; ?>>Cartão - 2X</option>
+                                <option value="5" <?php echo $form_pgt == '5' ? 'selected' : ''; ?>>Cartão - 4X</option>
+                                <option value="6" <?php echo $form_pgt == '6' ? 'selected' : ''; ?>>Cartão - 6X</option>
+                                <option value="7" <?php echo $form_pgt == '7' ? 'selected' : ''; ?>>Cartão - 8X</option>
+                                <option value="8" <?php echo $form_pgt == '8' ? 'selected' : ''; ?>>Cartão - 10X</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-md-2">
+                        <div class="mb-2">
+                            <label class="form-label">Garantia:</label>
+                            <select id="garantia" type="text" class="form-select" required>
+                                <option value="" <?php echo $garantia == '' ? 'selected' : ''; ?>>Selecione:</option>
+                                <option value="1" <?php echo $garantia == '1' ? 'selected' : ''; ?>>30 Dias</option>
+                                <option value="2" <?php echo $garantia == '2' ? 'selected' : ''; ?>>3 Meses</option>
+                                <option value="3" <?php echo $garantia == '3' ? 'selected' : ''; ?>>6 Meses</option>
+                                <option value="4" <?php echo $garantia == '4' ? 'selected' : ''; ?>>12 Meses</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="mb-2">
+                            <label class="form-label">Responsável:</label> <!-- campo responsável-->
+                            <input id="responsavel" type="text" maxlength="30" class="form-control" oninput="converterParaMaiusculas(this)" value="<?php echo $responsavel ?>" required>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="mb-2">
+                    <label class="form-label">Serviço realizado:</label> <!-- campo serviço realizado -->
+                    <textarea id="serv_realizado" type="text" class="form-control" rows="3" oninput="converterParaMaiusculas(this)" required><?php echo $servRealizado ?></textarea>
                 </div>
 
-                <div class="col-md-2">
-                    <div class="mb-2">
-                        <label class="form-label">Valor:</label> <!-- campo valor -->
-                        <input id="valor" type="text" maxlength="15" class="form-control" value="<?php echo $valor ?>" required>
-                    </div>
-                </div>
-
-                <div class="col-md-3">
-                    <div class="mb-2">
-                        <label class="form-label">Forma de pagamento:</label> <!-- campo garantia com seleções-->
-                        <select id="forma_pgt" type="text" class="form-select">
-                            <option selected>Selecione:</option>
-                            <option value="1">Dinheiro</option>
-                            <option value="2">Pix</option>
-                            <option value="3">Cartão - à vista </option>
-                            <option value="4">Cartão - 2X </option>
-                            <option value="5">Cartão - 4X </option>
-                            <option value="6">Cartão - 6X </option>
-                            <option value="6">Cartão - 8X </option>
-                            <option value="6">Cartão - 10X </option>
-                        </select>
-                    </div>
-                </div>
-
-                <div class="col-md-2">
-                    <div class="mb-2">
-                        <label class="form-label">Garantia:</label> <!-- campo garantia com seleções-->
-                        <select id="garantia" type="text" class="form-select">
-                            <option selected>Selecione:</option>
-                            <option value="3">30 Meses</option>
-                            <option value="1">3 dias</option>
-                            <option value="2">6 Meses</option>
-                            <option value="3">12 Meses</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div class="col-md-3">
-                    <div class="mb-2">
-                        <label class="form-label">Responsável:</label> <!-- campo responsável-->
-                        <input id="responsavel" type="text" maxlength="30" class="form-control" oninput="converterParaMaiusculas(this)" value="<?php echo $responsavel ?>" required>
-                    </div>
-                </div>
+                <button type="button" class="btn btn-success" onclick="salvar()">Salvar</button><!-- botão salvar -->
+                <a type="button" class="btn btn-danger" href="pag_inicio.php">Voltar</a> <!-- Botão voltar -->
 
             </div>
-            <div class="mb-2">
-                <label class="form-label">Serviço realizado:</label> <!-- campo serviço realizado -->
-                <textarea id="serv_realizado" type="text" class="form-control" rows="3" oninput="converterParaMaiusculas(this)" required><?php echo $servRealizado ?></textarea>
-            </div>
-
-            <button type="button" class="btn btn-success" onclick="salvar()">Salvar</button><!-- botão salvar -->
-            <a type="button" class="btn btn-danger" href="pag_inicio.php">Voltar</a> <!-- Botão voltar -->
-
+            <div class="col"></div>
         </div>
-        <div class="col"></div>
-    </div>
     </div>
     </div>
 

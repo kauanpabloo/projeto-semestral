@@ -36,6 +36,8 @@ if (isset($nomePartes[1])) {
     <!-- titulo da pagina (aba) -->
     <title>TecnoAr: Consultar seviços</title>
 
+    <link rel="icon" type="image/png" href="../assets/img/icon.png">
+
     <!-- bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
@@ -49,11 +51,10 @@ if (isset($nomePartes[1])) {
 
 <body>
     <!-- navBar -->
-    <!-- navBar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark"> <!-- cores Navbar -->
         <div class="container-fluid">
             <a class="navbar-brand" href="pag_inicio.php">
-                <img src="../assets/img/tec-logo.png" height="40" loading="lazy" style="margin-top: -1px;" /> <!-- logo Prime Solutions -->
+                <img src="../assets/img/tec-logo.png" height="40" loading="lazy" style="margin-top: -1px;" /> <!-- logo TecnoAr -->
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -109,8 +110,7 @@ if (isset($nomePartes[1])) {
         <div class="col"></div>
         <div class="col-10">
             <div class="col-6">
-                <h2>Consultar ordens de serviço:</h2>
-                <br>
+                <h1>Consultar ordens de serviço:</h1>
                 <div class="caixa-pesquisa"><!-- caixa de pesquisa -->
                     <input type="search" class="form-control w-30" placeholder="Deseja realizar uma pesquisa em serviços realizados?" id="pesquisa">
                     <button onclick="consulta()" class="btn btn-success"> <!-- botão pesquisa-->
@@ -122,7 +122,7 @@ if (isset($nomePartes[1])) {
                     </button>
                 </div>
             </div>
-            <div class="text-formulario">Necessário incluir pontuação/separadores em casos de pesquisa pela placa do veiculo e nome do responsável.</div>
+            <div class="text-formulario">Necessário incluir pontuação/separadores em casos de pesquisa pela placa do veiculo.</div>
             <br>
             <table class="table table-bordered table-hover">
                 <thead class="table-dark">

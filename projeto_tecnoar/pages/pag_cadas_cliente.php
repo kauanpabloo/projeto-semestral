@@ -27,6 +27,8 @@ if (isset($nomePartes[1])) {
 
   <!-- titulo da pagina (aba) -->
   <title>TecnoAr: Cadastro de Clientes</title>
+  
+  <link rel="icon" type="image/png" href="../assets/img/icon.png">
 
   <!-- CSS -->
   <link rel="stylesheet" type="text/css" href="../assets/css/estilo.css">
@@ -88,7 +90,7 @@ if (isset($nomePartes[1])) {
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark"> <!-- cores Navbar -->
     <div class="container-fluid">
       <a class="navbar-brand" href="pag_inicio.php">
-        <img src="../assets/img/tec-logo.png" height="40" loading="lazy" style="margin-top: -1px;" /> <!-- logo Prime Solutions -->
+        <img src="../assets/img/tec-logo.png" height="40" loading="lazy" style="margin-top: -1px;" /> <!-- logo TecnoAr -->
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>

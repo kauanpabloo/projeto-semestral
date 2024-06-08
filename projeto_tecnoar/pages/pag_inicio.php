@@ -36,6 +36,8 @@ if (isset($nomePartes[1])) {
   <!-- titulo da pagina (aba) -->
   <title>TecnoAr: Inicio</title>
 
+  <link rel="icon" type="image/png" href="../assets/img/icon.png">
+
   <!-- bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
@@ -56,7 +58,7 @@ if (isset($nomePartes[1])) {
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark"> <!-- cores Navbar -->
     <div class="container-fluid">
       <a class="navbar-brand" href="pag_inicio.php">
-        <img src="../assets/img/tec-logo.png" height="40" loading="lazy" style="margin-top: -1px;" /> <!-- logo Prime Solutions -->
+        <img src="../assets/img/tec-logo.png" height="40" loading="lazy" style="margin-top: -1px;" /> <!-- logo TecnoAr -->
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -176,7 +178,7 @@ if (isset($nomePartes[1])) {
                     <path fill-rule='evenodd' d='M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z'/>
                     </svg>
                     </a>
-                    <a href='javascript:void(0);' onclick='confirmDelete($userdata[ORDEM_SERVICO])' . ' class='btn btn-danger'>
+                    <a href='javascript:void(0);' onclick='confirmarExclusao($userdata[ORDEM_SERVICO])' . ' class='btn btn-danger'>
                     <svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' fill='currentColor' class='bi bi-archive' viewBox='0 0 16 16'>
                     <path d='M0 2a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1v7.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 12.5V5a1 1 0 0 1-1-1zm2 3v7.5A1.5 1.5 0 0 0 3.5 14h9a1.5 1.5 0 0 0 1.5-1.5V5zm13-3H1v2h14zM5 7.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5'/>
                     </svg>
@@ -202,12 +204,40 @@ if (isset($nomePartes[1])) {
   }
 
   // função para confirmar a exclusão de um cliente, redirecionando para o script PHP de exclusão
-  function confirmDelete(orderId) {
-      if (confirm("Tem certeza que deseja excluir esta Ordem de Serviço?")) {
-        window.location.href = '../sql/delete.php?id=' + orderId;
-      }
-    }
+  function confirmarExclusao(id) {
+    // exibe um modal de confirmação
+    var modalConfirmacao = `
+      <div class="modal fade" id="modalConfirmacao" tabindex="-1">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Confirmar exclusão</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              Tem certeza que deseja finalizar essa ordem de serviço?
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+              <button type="button" class="btn btn-danger" onclick="finalizarOrdemServico(${id})">Finalizar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
 
+    // Adiciona o modal à página
+    document.body.insertAdjacentHTML('beforeend', modalConfirmacao);
+
+    // Exibe o modal
+    var modal = new bootstrap.Modal(document.getElementById('modalConfirmacao'));
+    modal.show();
+  }
+
+  function finalizarOrdemServico(id) {
+    // redireciona para o script de exclusão com o ID como parâmetro
+    window.location.href = '../sql/sql_arquive_servico.php?id=' + id;
+  }
 </script>
 
 </html>

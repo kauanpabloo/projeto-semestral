@@ -27,18 +27,18 @@ if ($result->num_rows > 0) {
     $resultDel = $con->query($sqlDel);
 
     // redireciona para a página de consulta de clientes após a exclusão
-    header('Location:pag_consu_cliente.php');
+    header('Location:../pages/pag_consu_cliente.php');
   } else {
     // caso não haja serviços associados, exclui apenas o cliente
     $sqlDel = "DELETE FROM cliente WHERE id=$id";
     $resultDel = $con->query($sqlDel);
 
     // redireciona para a página de consulta de clientes após a exclusão
-    header('Location:pag_consu_cliente.php');
+    header('Location:../pages/pag_consu_cliente.php');
   }
 } else {
   // o erro apresentado
   echo "Cliente não encontrado." . $con->error;
   // botão voltar para  a pagina de consulta
-  echo '<br><a href="pag_consu_cliente.php">Voltar</a>';
+  echo '<br><a href="../pages/pag_consu_cliente.php">Voltar</a>';
 }

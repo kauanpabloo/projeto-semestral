@@ -14,15 +14,13 @@
 </head>
 
 <body>
-
     <!-- navBar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark"> <!-- cores Navbar -->
         <div class="container-fluid">
             <a class="navbar-brand" href="pag_inicio.php">
-                <img src="img/tec-logo.png" height="40" loading="lazy" style="margin-top: -1px;" /> <!-- logo Prime Solutions -->
+                <img src="img/tec-logo.png" height="40" loading="lazy" style="margin-top: -1px;" /> <!-- logo TecnoAr -->
             </a>
 
-            <!-- Dropdown de Sair e Perfil alinhado à direita -->
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="font-size: 18px;">
