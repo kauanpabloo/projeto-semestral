@@ -8,7 +8,7 @@ O sistema está hospedado em [tecnoar.great-site.net](http://tecnoar.great-site.
 
 Utilize as seguintes credenciais para acessar o sistema:
 
-- **Email:** teste@exemplo.com
+- **Email:** exemplo@teste.com
 - **Senha:** senha123
 
 ## Link video YouTube
