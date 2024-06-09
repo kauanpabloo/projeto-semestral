@@ -1,18 +1,16 @@
-# README - Projeto Semestral 
+# README - Projeto Semestral
 
-## Acesso ao sistema
+## Acesso ao Sistema
 
-O sistema está hospedado em [tecnoar.great-site.net](http://tecnoar.great-site.net/).
+O sistema está hospedado no seguinte endereço: [tecnoar.great-site.net](http://tecnoar.great-site.net/).
 
-### Credenciais de acesso
+### Credenciais de Acesso
 
 Utilize as seguintes credenciais para acessar o sistema:
 
 - **Email:** exemplo@teste.com
 - **Senha:** senha123
 
-## Link video YouTube
+## Vídeo de Apresentação
 
-O video está sendo editado, link em breve!
-
-
+Confira o vídeo de apresentação do projeto no YouTube: [Apresentação do Projeto](https://youtu.be/MLAyHNljlXg).
