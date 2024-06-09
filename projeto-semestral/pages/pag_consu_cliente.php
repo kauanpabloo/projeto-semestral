@@ -204,7 +204,7 @@ if (isset($nomePartes[1])) {
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-danger" onclick="exluircliente(${id})">Finalizar</button>
+                <button type="button" class="btn btn-danger" onclick="exluircliente(${id})">Excluir</button>
             </div>
             </div>
         </div>

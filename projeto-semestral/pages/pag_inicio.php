@@ -114,7 +114,6 @@ if (isset($nomePartes[1])) {
     <div class="col"></div>
     <div class="col-10">
       <div class="col-6">
-        <br>
         <h1>Serviços em andamento:</h1>
         <div class="caixa-pesquisa"><!-- caixa de pesquisa -->
           <input type="search" class="form-control" placeholder="Deseja realizar uma pesquisa?" id="pesquisa">
@@ -211,7 +210,7 @@ if (isset($nomePartes[1])) {
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title">Confirmar exclusão</h5>
+              <h5 class="modal-title">Finalizar O.S</h5>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">

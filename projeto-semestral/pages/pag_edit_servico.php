@@ -104,7 +104,7 @@ $data_form = date('d/m/Y', strtotime($dataOs));
                 success: function(resp) {
                     // exibe um alerta com a resposta do servidor
                     alert(resp);
-                    window.location.href = "pag_consu_servico.php";
+                    window.location.href = "pag_inicio.php";
                 }
             });
         }
